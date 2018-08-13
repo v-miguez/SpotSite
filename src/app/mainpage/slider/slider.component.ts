@@ -20,13 +20,13 @@ export class SliderComponent implements OnInit {
 	posicion: string
 	constructor(private sliderService: SliderService) {
 
-		this.imagenActual = this.sliderService.getImages(0)
-		this.nextImage()
-		this.posicion = "in"
+		this.imagenes = this.sliderService.getImages()
+		
+	
 		$('.carousel').carousel({
 			interval: 2000
 		})
-		
+
 	}
 
 	ngOnInit() {

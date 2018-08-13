@@ -13,8 +13,8 @@ export class SliderService {
   	this.listaImagenes = IMAGENESslider
   }
 
-  getImages(photoPosition){
-  	return IMAGENESslider[photoPosition]
+  getImages(){
+  	return IMAGENESslider
   }
 
 

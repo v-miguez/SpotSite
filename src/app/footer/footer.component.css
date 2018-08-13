@@ -1,0 +1,64 @@
+.contaainer{
+	width: 100%;
+	background-color: black;
+	padding: 5% 10%;
+	color: white;
+}
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+hr{
+	color: white;
+	border: 0.5px solid white;
+}
+a{
+	color: white;
+	position: relative;
+}
+
+img{
+	width: 100%;
+	border-radius: 10%;
+	height: 50px;
+	margin: 10px 5px;
+}
+.imagenPeq{
+	width: 25%;
+	border-radius: 10%;
+	height: 50px;
+	margin: 10px 5px;
+	position: relative;
+}
+
+i{
+	position: absolute;
+	top: 50%;
+	left: 45%;
+	z-index: 10;
+	color: lightblue;
+	opacity: 0;
+}
+
+a:hover{
+}
+.imagenPeq:hover .fas, .imagenPeq.fas .fas{
+	opacity: 1;
+}
+
+a:hover .img-fluid, a.img-fluid .img-fluid{
+	opacity: 0.5;
+}
+
+
+i:hover .thumb-hover-icon, .fas.thumb-hover-icon .thumb-hover-icon{
+
+opacity: 0.5;
+
+}
+
+
+
+
+
+

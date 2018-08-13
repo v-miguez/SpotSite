@@ -1,0 +1,39 @@
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.contaainer{
+	width: 80%;
+	margin: 0 auto;
+	background-color: #eee;
+	justify-content: space-between;
+
+}
+.seccion{
+	margin: 20px 0px;
+	width: 30%;
+	background-color: tomato;
+	border: 1px solid black;
+	height: 450px;
+	position: relative;
+	overflow: hidden;
+}
+
+.hover{
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	padding: 30px;
+	text-align: center;
+	position: absolute;
+	bottom: 100%;
+	transition-duration: 1s;
+}
+.seccion:hover .hover, .seccion.hover .hover {
+	bottom: 0px;
+    transition-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
+
+
+
+}

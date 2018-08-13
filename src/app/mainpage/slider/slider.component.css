@@ -10,3 +10,24 @@ img{
 	width:100%;
 	height: 500px;
 }
+
+@media (max-width: 992px){
+
+div[class^="carousel"]{
+	height: 200px;
+
+	}
+
+	img{
+		height: 200px;
+	}
+
+}
+
+@media (max-width: 767px){
+
+	div[class^="carousel"]{
+		display: none;
+	}
+
+}

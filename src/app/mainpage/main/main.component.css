@@ -37,3 +37,24 @@
 
 
 }
+
+@media (max-width: 992px){
+
+	.seccion{
+		width: 40%;
+	}
+	.hover{
+		max-height: 100px;
+		bottom: 0px;
+	}
+
+}
+
+@media (max-width: 767px){
+
+	.seccion{
+		width: 80%;
+		margin: 10px auto;
+	}
+
+}

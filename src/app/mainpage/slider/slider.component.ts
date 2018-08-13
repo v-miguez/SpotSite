@@ -3,18 +3,14 @@ import { SliderService } from '../../slider.service'
 import { ImagenSlider } from '../../models/imagenesSlider.model'
 import {  animate, state, style, transition, trigger} from '@angular/animations';
 
+declare var jQuery:any;
+declare var $:any;
+
 @Component({
 	selector: 'slider',
 	templateUrl: './slider.component.html',
 	styleUrls: ['./slider.component.css'],
-	animations: [
-	trigger('moverImagen',[
-		state('out', style({ opacity: 0.3})),
-		state('in', style({ opacity: 1})),
-		transition('out => in', animate('4s ease-out')),
-		transition('in => out', animate('3s ease-in'))
-		])
-	]
+	animations: []
 
 })
 export class SliderComponent implements OnInit {
@@ -26,7 +22,11 @@ export class SliderComponent implements OnInit {
 
 		this.imagenActual = this.sliderService.getImages(0)
 		this.nextImage()
-		this.posicion = "in"	
+		this.posicion = "in"
+		$('.carousel').carousel({
+			interval: 2000
+		})
+		
 	}
 
 	ngOnInit() {
@@ -37,28 +37,28 @@ export class SliderComponent implements OnInit {
 	nextImage(){
 
 		let i =0
-		setInterval(()=>{
+		// setInterval(()=>{
 
-			if(this.posicion == "in"){
-				this.posicion = "out"
-			}else{
-				this.posicion = "in"
-			}
+		// 	if(this.posicion == "in"){
+		// 		this.posicion = "out"
+		// 	}else{
+		// 		this.posicion = "in"
+		// 	}
 
-		},4000)
-		setInterval(()=>{
-			i++
-			if(i == this.sliderService.listaImagenes.length){
+		// },4000)
+		// setInterval(()=>{
+		// 	i++
+		// 	if(i == this.sliderService.listaImagenes.length){
 
-				i = 0
+		// 		i = 0
 
-			}
+		// 	}
 
-			this.imagenActual = this.sliderService.getImages(i)
+		// 	this.imagenActual = this.sliderService.getImages(i)
 
-			console.log(this.imagenActual)
+		// 	console.log(this.imagenActual)
 
-		},7000)
+		// },7000)
 
 	}
 

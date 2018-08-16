@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './mainpage/slider/slider.component';
 import { MainComponent } from './mainpage/main/main.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { HttpModule } from '@angular/http'
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule
+    BrowserModule, BrowserAnimationsModule, HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

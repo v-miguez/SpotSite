@@ -1,7 +1,11 @@
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="logo">
-			<a class="navbar-brand" [routerLink]="['/main']">LOGO</a>
+			<a class="navbar-brand" [routerLink]="['/main']"><img src="../../assets/images/logo.png" alt=""></a>
+			<div class="enlaces">
+				<a [routerLink]="['/register']"><h4>Registrate</h4></a>
+				<a [routerLink]="['/login']"><h4>Login</h4></a>
+			</div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -30,13 +34,21 @@
 
 			</ul>
 		</div>
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			<a [routerLink]="['/register']">¿Quieres registrarte?</a>
+		<div class="login">
+			<div class="formulario">
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="text" placeholder="Alias" aria-label="Search">
+					<input class="form-control mr-sm-2" type="password" placeholder="Contraseña" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enviar</button>
+				</form>
+				<div class="opciones">
+					<label><input type="checkbox" id="cbox1" value="first_checkbox"> Mantener sesión iniciada</label> <br>
+					<a [routerLink]="['/register']">¿Quieres registrarte?</a>
 
-		</form>
+				</div>
+			</div>
+			
+		</div>
 		
 	</nav>
 </header>

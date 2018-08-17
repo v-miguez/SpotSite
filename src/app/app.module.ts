@@ -13,7 +13,8 @@ import { SliderComponent } from './mainpage/slider/slider.component';
 import { MainComponent } from './mainpage/main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
-import { RegistroComponent } from './registro/registro.component'
+import { RegistroComponent } from './registro/registro.component';
+import { CiudadComponent } from './ciudad/ciudad.component'
 
 
 
@@ -24,7 +25,9 @@ import { RegistroComponent } from './registro/registro.component'
   SliderComponent,
   MainComponent,
   FooterComponent,
-  RegistroComponent
+  RegistroComponent,
+  LoginComponent,
+  CiudadComponent
   ],
   imports: [
   BrowserModule, BrowserAnimationsModule, HttpModule, RouterModule.forRoot(appRoutes)

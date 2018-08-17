@@ -35,16 +35,3 @@ button{
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
 }
-
-@media (max-width: 808px){
-    .formulario{
-        width: 100%;
-    }
-    form{
-        flex-direction: column;
-
-    }
-    button{
-        margin: 0 auto;
-    }
-}

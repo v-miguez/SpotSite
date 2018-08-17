@@ -1,10 +1,10 @@
 <slider></slider>
 <div class="contaainer flex">
-	<div class="ui card" *ngFor="let carta of [1,2,3,4,5,6,7,8]">
+	<div class="ui card" *ngFor="let carta of [1,2,3,4,5,6,7,8]; let index = index">
 		<div class="content">
 			<i class="right floated like icon"></i>
 			<i class="right floated star icon"></i>
-			<div class="header">Cute Dog</div>
+			<div class="header">Zona {{index+1}} </div>
 			<div class="description">
 				<p></p>
 			</div>

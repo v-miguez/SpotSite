@@ -1,20 +1,56 @@
 nav.navbar{
 
-	padding:40px;
+	padding:20px;
 	display: flex;
 }
 
 .logo{
-
- flex-grow: 1;
+	display: flex;
+	flex-grow: 2;
+	justify-content: space-around;
 }
 
 .form-inline{
-flex-grow: 3;
-justify-content: flex-end;
+	flex-grow: 3;
+	justify-content: flex-end;
 }
 
 .collapse{
-flex-grow: 2;
-justify-content: center;
+	flex-grow: 2;
+	justify-content: center;
+}
+
+.enlaces{
+	display: none;
+}
+.opciones{
+	display: flex;
+	justify-content: space-between;
+}
+
+.enlaceLogo{
+flex-grow: 1
+}
+.login{
+	margin-top: 20px;
+}
+img{
+	max-width: 150px;
+	margin-top: -10px;
+}
+
+@media (max-width: 992px){
+	.enlaces{
+		display: flex;
+		justify-content: space-around;
+		padding: 10px 15px;
+		width: 50%;
+		margin-top: 15px;
+
+	}
+	.formulario{
+		display: none;
+	}
+	.logo{
+	}
 }

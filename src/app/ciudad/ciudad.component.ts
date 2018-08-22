@@ -1,15 +1,46 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilService } from '../util.service'
+import { ImagenSlider } from '../models/imagenesSlider.model'
+
+declare var jQuery:any;
+declare var $:any;
 
 @Component({
-  selector: 'app-ciudad',
-  templateUrl: './ciudad.component.html',
-  styleUrls: ['./ciudad.component.css']
+	selector: 'app-ciudad',
+	templateUrl: './ciudad.component.html',
+	styleUrls: ['./ciudad.component.css'],
+	animations: []
+
 })
+
 export class CiudadComponent implements OnInit {
 
-  constructor() { }
+	imagenActual: any
+	imagenes: any
+	posicion: string
 
-  ngOnInit() {
-  }
+	constructor(private utilService: UtilService) {
+
+		this.utilService.getSliderImages().then((res)=>{
+			this.imagenes = res.json().imagenesCarousel
+
+		})
+
+
+
+	
+		$('.carousel').carousel('pause')
+
+	}
+
+	ngOnInit() {
+
+
+	}
+
+	
+
+
 
 }
+

@@ -14,7 +14,8 @@ import { MainComponent } from './mainpage/main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
-import { CiudadComponent } from './ciudad/ciudad.component'
+import { CiudadComponent } from './ciudad/ciudad.component';
+import { UserzoneComponent } from './userzone/userzone.component'
 
 
 
@@ -27,7 +28,8 @@ import { CiudadComponent } from './ciudad/ciudad.component'
   FooterComponent,
   RegistroComponent,
   LoginComponent,
-  CiudadComponent
+  CiudadComponent,
+  UserzoneComponent
   ],
   imports: [
   BrowserModule, BrowserAnimationsModule, HttpModule, RouterModule.forRoot(appRoutes)

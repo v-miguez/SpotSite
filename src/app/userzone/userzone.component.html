@@ -1,0 +1,105 @@
+<div class="contenedorUser">
+
+	<div class="panel">
+		<div class="control">
+			<section>
+				<div class="informacion">
+					<div class="imagen"></div>
+					<div class="info"><h2>Alias</h2>
+						<h4>datos personales</h4>
+						<h3>Informacion</h3></div>
+					</div>
+					<hr>
+					<div class="password">
+						<p>
+
+							<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+								Cambiar contraseña
+							</button>
+							
+
+						</p>
+						<div class="collapse" id="collapseExample">
+							<form>
+								<input class="form-control mr-sm-2" type="password" placeholder="Contraseña Actual" aria-label="Search">
+								<input class="form-control mr-sm-2" type="password" placeholder="Nueva contraseña" aria-label="Search">
+								<input class="form-control mr-sm-2" type="password" placeholder="Repite la nueva contraseña" aria-label="Search">
+								<button type="button" class="btn btn-success">Confirmar</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section class="controlZonas">
+					
+					<div class="zonasOptions" data-toggle="collapse" data-target="#collapseZona" aria-expanded="false" aria-controls="collapseZona">
+						<h3>Ver mis zonas</h3>
+						<i class="fas fa-chevron-down"  ></i>	
+					</div>	
+					<div class="collapse row" id="collapseZona">
+						<hr>
+
+						<div class="ui card zona col-lg-4 col-md-6 col-sm-12 " *ngFor="let carta of [1,2,3,4,5,6,7,8]; let index = index" >
+							<div class="content">
+								<span class="right floated "  data-toggle="modal" data-target=".modalEdit">
+									<i class="fas fa-cogs"></i>
+									Editar zona
+								</span>
+								<div class="header">Zona {{index+1}} </div>
+								<div class="description">
+
+
+								</div>
+							</div>
+							<div class="extra content">
+								<span class="left floated ">
+									<i class="like icon"></i>
+									X - Me gusta
+								</span>
+								<span class="right floated ">
+									<i class="star icon"></i>
+									X - Favoritos
+								</span>
+							</div>
+						</div>
+
+					</div>
+					
+
+
+				</section>
+
+
+			</div>
+		</div>
+	</div>
+
+	<!-- LIGHTBOX  EDIT-->
+	<div class="modal fade modalEdit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<span class="formularioEdit">
+					<input type="text" value="Nombre de la Zona" onClick="this.setSelectionRange(0, this.value.length)"><i class="far fa-edit"></i>
+				</span>
+				<span class="formularioEdit imagenEdit">
+					<div class="cambioImagen">
+						
+					</div>
+					<input type="file" value="Nombre de la Zona" onClick="this.setSelectionRange(0, this.value.length)">
+				</span>
+				<span class="formularioEdit">
+					<input type="text" value="Dirección" onClick="this.setSelectionRange(0, this.value.length)"><i class="far fa-edit"></i>
+				</span>
+				<span class="formularioEdit">
+					<input type="text" value="Barrio" onClick="this.setSelectionRange(0, this.value.length)"><i class="far fa-edit"></i>
+				</span>
+				<span class="formularioEdit">
+					<input type="text" value="Ciudad" onClick="this.setSelectionRange(0, this.value.length)"><i class="far fa-edit"></i>
+				</span>
+
+
+
+
+			</div>
+		</div>
+	</div>
+

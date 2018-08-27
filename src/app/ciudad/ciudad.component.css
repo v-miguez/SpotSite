@@ -37,14 +37,14 @@
 }
 
 button{
-	margin: 5px 10px;
+	margin: 10px 0px;
 	padding: 3px 10px;
 }
 
 .filtros{
 	display: flex;
 	width: 40%;
-	justify-content: space-around;
+	justify-content: space-between;
 	padding-bottom: 5px;
 }
 
@@ -58,6 +58,45 @@ button{
 p{
 	margin-top: 13px;
 }
+
+
+
+
+form{
+	display: flex;
+	flex-direction: column;
+	padding: 40px;
+}
+
+
+input{
+	margin: 10px 0px;
+	padding: 10px;
+	border: none;
+	border-bottom: 1px solid #eee;
+}
+
+span{
+	display: flex;
+	justify-content: space-between;
+}
+
+span i{
+	margin-top: 20px;
+	margin-left: 10px;
+	cursor: pointer;
+	font-size: 20px;
+}
+.fa-plus{
+	color: green;
+
+}
+
+.fa-minus{
+	color: red;
+}
+
+
 
 
 

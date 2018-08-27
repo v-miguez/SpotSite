@@ -88,7 +88,7 @@ span{
 }
 
 button{
-	width: 25%;
+	width: 200px;
 }
 
 .opciones{
@@ -129,4 +129,55 @@ span i {
 	width: 100px;
 	height: 100px;
 	background-color: blue;
+}
+
+.borrarPerfil{
+	display: flex;
+	justify-content: center;
+}
+.borrarPerfil button{
+
+	min-width: 300px;
+
+}
+.btn-outline-danger i{
+	font-size: 18px;
+}
+
+
+
+
+
+form{
+	display: flex;
+	flex-direction: column;
+	padding: 40px;
+}
+
+
+input{
+	margin: 10px 0px;
+	padding: 10px;
+	border: none;
+	border-bottom: 1px solid #eee;
+}
+
+span{
+	display: flex;
+	justify-content: space-between;
+}
+
+form span i{
+	margin-top: 20px;
+	margin-left: 10px;
+	cursor: pointer;
+	font-size: 20px;
+}
+.fa-plus{
+	color: green;
+
+}
+
+.fa-minus{
+	color: red;
 }

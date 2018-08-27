@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { HttpModule } from '@angular/http';
 
+import { ReactiveFormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms'
+
 import { RouterModule } from '@angular/router'
 import { appRoutes } from './app.routing'
 
@@ -32,7 +35,7 @@ import { UserzoneComponent } from './userzone/userzone.component'
   UserzoneComponent
   ],
   imports: [
-  BrowserModule, BrowserAnimationsModule, HttpModule, RouterModule.forRoot(appRoutes)
+  BrowserModule, BrowserAnimationsModule, HttpModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

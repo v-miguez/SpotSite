@@ -1,7 +1,7 @@
 <div class="contenedor">
 	<div class="superior">
 		<div class="filtros">
-			<button type="button" class="btn btn-light" *ngFor="let boton of [1,2,3,4,5,6]">Light</button>
+			<button type="button" class="btn btn-light" data-toggle="modal" data-target=".bd-example-modal-lg">Añadir zona</button>
 
 		</div>	
 		<div class="activarMapa">
@@ -41,6 +41,39 @@
 
 		</div>
 		<div class="mapa">
+
+		</div>
+	</div>
+</div>
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<form [formGroup]="formularioZona" (ngSubmit)="handleOnSubmit()">
+				<input type="text" formControlName="nombre" placeholder="Nombre de la zona">
+				<div *ngIf="!formularioZona.controls.nombre.valid && formularioZona.controls.nombre.dirty ">Error</div>
+				<input type="text" formControlName="direccion" placeholder="Direccion">
+				<input type="text" formControlName="barrio" placeholder="Barrio">
+				<input type="text" formControlName="ciudad" placeholder="Ciudad">
+				
+				<span *ngFor="let elemento of listaImagenesFormulario; let index = index;" >
+					<input type="file" accept="image/*" value="Elige la imagen" class="imagenes{{index}}">
+					<div>
+						<i *ngIf="index == listaImagenesFormulario.length-1" class="fas fa-plus" (click)="addImagen()"></i>
+						<i *ngIf="index != listaImagenesFormulario.length-1" class="fas fa-minus" (click)="dropImagen(index)"></i>
+					</div>
+
+
+				</span>
+				<label>Imagenes</label>
+				<button type="submit" class="btn btn-outline-success" [disabled]="!formularioZona.valid">Enviar</button>
+
+			</form>
+	
+
 
 		</div>
 	</div>

@@ -40,7 +40,7 @@
 
 						<div class="ui card zona col-lg-4 col-md-6 col-sm-12 " *ngFor="let carta of [1,2,3,4,5,6,7,8]; let index = index" >
 							<div class="content">
-								<span class="right floated "  data-toggle="modal" data-target=".modalEdit">
+								<span class="right floated "  data-toggle="modal" data-target=".bd-example-modal-lg">
 									<i class="fas fa-cogs"></i>
 									Editar zona
 								</span>
@@ -62,44 +62,56 @@
 							</div>
 						</div>
 
+
+
 					</div>
 					
-
-
 				</section>
+				<section class="borrarPerfil">
+					<button type="button" class="btn btn-outline-danger">¿Quieres borrar tu cuenta? <i class="far fa-frown"></i></button>
+
+				</section >
+
+				
 
 
 			</div>
+
+
 		</div>
 	</div>
 
-	<!-- LIGHTBOX  EDIT-->
-	<div class="modal fade modalEdit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<span class="formularioEdit">
-					<input type="text" value="Nombre de la Zona" onClick="this.setSelectionRange(0, this.value.length)"><i class="far fa-edit"></i>
-				</span>
-				<span class="formularioEdit imagenEdit">
-					<div class="cambioImagen">
-						
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<form [formGroup]="formularioZona" (ngSubmit)="handleOnSubmit()">
+				<input type="text" formControlName="nombre" placeholder="Nombre de la zona">
+				<div *ngIf="!formularioZona.controls.nombre.valid && formularioZona.controls.nombre.dirty ">Error</div>
+				<input type="text" formControlName="direccion" placeholder="Direccion">
+				<input type="text" formControlName="barrio" placeholder="Barrio">
+				<input type="text" formControlName="ciudad" placeholder="Ciudad">
+				
+				<span *ngFor="let elemento of listaImagenesFormulario; let index = index;" >
+					<input type="file" accept="image/*" value="Elige la imagen" class="imagenes{{index}}">
+					<div>
+						<i *ngIf="index == listaImagenesFormulario.length-1" class="fas fa-plus" (click)="addImagen()"></i>
+						<i *ngIf="index != listaImagenesFormulario.length-1" class="fas fa-minus" (click)="dropImagen(index)"></i>
 					</div>
-					<input type="file" value="Nombre de la Zona" onClick="this.setSelectionRange(0, this.value.length)">
-				</span>
-				<span class="formularioEdit">
-					<input type="text" value="Dirección" onClick="this.setSelectionRange(0, this.value.length)"><i class="far fa-edit"></i>
-				</span>
-				<span class="formularioEdit">
-					<input type="text" value="Barrio" onClick="this.setSelectionRange(0, this.value.length)"><i class="far fa-edit"></i>
-				</span>
-				<span class="formularioEdit">
-					<input type="text" value="Ciudad" onClick="this.setSelectionRange(0, this.value.length)"><i class="far fa-edit"></i>
-				</span>
 
 
+				</span>
+				<label>Imagenes</label>
+				<button type="submit" class="btn btn-outline-success" [disabled]="!formularioZona.valid">Enviar</button>
+
+			</form>
+	
 
 
-			</div>
 		</div>
 	</div>
-
+</div>

@@ -4,6 +4,7 @@ import { RegistroComponent } from './registro/registro.component'
 import { LoginComponent } from './login/login.component'
 import { CiudadComponent } from './ciudad/ciudad.component'
 import { UserzoneComponent } from './userzone/userzone.component'
+import { ZonaComponent } from './zona/zona.component'
 
 export const appRoutes: Routes=[
 {path: '', pathMatch: 'full', component: MainComponent},
@@ -11,6 +12,6 @@ export const appRoutes: Routes=[
 {path: 'register', component: RegistroComponent},
 {path: 'login', component: LoginComponent},
 {path: 'ciudad', component: CiudadComponent},
-{path: 'user', component: UserzoneComponent}
-
+{path: 'user', component: UserzoneComponent},
+{path: 'zona', component: ZonaComponent}
 ]

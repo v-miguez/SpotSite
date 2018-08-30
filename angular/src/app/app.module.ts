@@ -18,7 +18,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { CiudadComponent } from './ciudad/ciudad.component';
-import { UserzoneComponent } from './userzone/userzone.component'
+import { UserzoneComponent } from './userzone/userzone.component';
+import { ZonaComponent } from './zona/zona.component'
 
 
 
@@ -32,7 +33,8 @@ import { UserzoneComponent } from './userzone/userzone.component'
   RegistroComponent,
   LoginComponent,
   CiudadComponent,
-  UserzoneComponent
+  UserzoneComponent,
+  ZonaComponent
   ],
   imports: [
   BrowserModule, BrowserAnimationsModule, HttpModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule, FormsModule

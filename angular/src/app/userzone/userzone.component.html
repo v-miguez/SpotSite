@@ -68,7 +68,7 @@
 					
 				</section>
 				<section class="borrarPerfil">
-					<button type="button" class="btn btn-outline-danger">¿Quieres borrar tu cuenta? <i class="far fa-frown"></i></button>
+					<button type="button" class="btn btn-outline-danger"  data-toggle="modal" data-target="#exampleModal">¿Quieres borrar tu cuenta? <i class="far fa-frown"></i></button>
 
 				</section >
 
@@ -84,34 +84,56 @@
 
 
 
-<!-- Large modal -->
+	<!-- Large modal -->
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<form [formGroup]="formularioZona" (ngSubmit)="handleOnSubmit()">
-				<input type="text" formControlName="nombre" placeholder="Nombre de la zona">
-				<div *ngIf="!formularioZona.controls.nombre.valid && formularioZona.controls.nombre.dirty ">Error</div>
-				<input type="text" formControlName="direccion" placeholder="Direccion">
-				<input type="text" formControlName="barrio" placeholder="Barrio">
-				<input type="text" formControlName="ciudad" placeholder="Ciudad">
-				
-				<span *ngFor="let elemento of listaImagenesFormulario; let index = index;" >
-					<input type="file" accept="image/*" value="Elige la imagen" class="imagenes{{index}}">
-					<div>
-						<i *ngIf="index == listaImagenesFormulario.length-1" class="fas fa-plus" (click)="addImagen()"></i>
-						<i *ngIf="index != listaImagenesFormulario.length-1" class="fas fa-minus" (click)="dropImagen(index)"></i>
-					</div>
+	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<form [formGroup]="formularioZona" (ngSubmit)="handleOnSubmit()">
+					<input type="text" formControlName="nombre" placeholder="Nombre de la zona">
+					<div *ngIf="!formularioZona.controls.nombre.valid && formularioZona.controls.nombre.dirty ">Error</div>
+					<input type="text" formControlName="direccion" placeholder="Direccion">
+					<input type="text" formControlName="barrio" placeholder="Barrio">
+					<input type="text" formControlName="ciudad" placeholder="Ciudad">
 
-
-				</span>
-				<label>Imagenes</label>
-				<button type="submit" class="btn btn-outline-success" [disabled]="!formularioZona.valid">Enviar</button>
-
-			</form>
-	
+					<span *ngFor="let elemento of listaImagenesFormulario; let index = index;" >
+						<input type="file" accept="image/*" value="Elige la imagen" class="imagenes{{index}}">
+						<div>
+							<i *ngIf="index == listaImagenesFormulario.length-1" class="fas fa-plus" (click)="addImagen()"></i>
+							<i *ngIf="index != listaImagenesFormulario.length-1" class="fas fa-minus" (click)="dropImagen(index)"></i>
+						</div>
 
 
+					</span>
+					<label>Imagenes</label>
+					<button type="submit" class="btn btn-outline-success" [disabled]="!formularioZona.valid">Enviar</button>
+
+				</form>
+
+
+
+			</div>
 		</div>
 	</div>
-</div>
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<h3>¿Quieres borrar tu cuenta?</h3>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-danger">Eliminar</button>
+				</div>
+			</div>
+		</div>
+	</div>

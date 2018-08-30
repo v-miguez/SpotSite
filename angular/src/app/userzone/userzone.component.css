@@ -181,3 +181,17 @@ form span i{
 .fa-minus{
 	color: red;
 }
+
+.modal-header span{
+	display: flex;
+	justify-content: flex-end;
+
+}
+div h3{
+	text-align: center;
+	
+}
+
+.modal-content[_ngcontent-c3]{
+	padding: 10px;
+}

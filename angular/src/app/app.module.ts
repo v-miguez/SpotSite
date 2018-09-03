@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { HttpModule } from '@angular/http';
@@ -21,6 +21,9 @@ import { CiudadComponent } from './ciudad/ciudad.component';
 import { UserzoneComponent } from './userzone/userzone.component';
 import { ZonaComponent } from './zona/zona.component'
 
+import { NgReduxModule, NgRedux, DevToolsExtension} from '@angular-redux/store'
+import { IAppState, rootReducer, INITIAL_STATE } from './store'
+
 
 
 @NgModule({
@@ -37,9 +40,26 @@ import { ZonaComponent } from './zona/zona.component'
   ZonaComponent
   ],
   imports: [
-  BrowserModule, BrowserAnimationsModule, HttpModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule, FormsModule
+  BrowserModule, BrowserAnimationsModule, HttpModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule, FormsModule, NgReduxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+
+export class AppModule {
+  constructor(ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension) {
+    let enhancers = isDevMode() ? [devTools.enhancer()] : []
+
+    let estado_inicial = null
+    console.log(localStorage.getItem('redux_data'))
+    if (localStorage.getItem('redux_data')) {
+      estado_inicial = JSON.parse(localStorage.getItem('redux_data'))
+    } else {
+      console.log('no')
+      estado_inicial = INITIAL_STATE
+    }
+
+    ngRedux.configureStore(rootReducer, estado_inicial)//, [], enhancers)
+  }
+}

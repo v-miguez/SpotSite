@@ -16,11 +16,11 @@
 	height: 500px;
 }
 
-.container{
+.contenedor{
 	height: 500px;
 	position: absolute;
 	top: 0;
-	left:10%;
+	left:20%;
 	text-align: center;
 
 }
@@ -52,4 +52,44 @@ img{
 	transition-duration: 0.5s;
 	color: red;
 }
+
+.container{
+	
+}
+
+.comentario{
+	display: flex;
+	border: 1px solid #eee;
+	padding: 10px;
+}
+.foto{
+	background-color: black;
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+}
+.info{
+	text-align: center;
+}
+.texto{
+
+	padding: 30px;
+
+}
+
+iframe{
+	margin-top: -280px;
+}
+
+
+
+@media (max-width: 991px){
+	iframe{
+		margin-top: 10px;
+	}
+}
+
+
+
+
 

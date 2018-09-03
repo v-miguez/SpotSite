@@ -1,0 +1,2 @@
+export const GUARDAR_TOKEN = 'GUARDAR_TOKEN'
+export const BORRAR_TOKEN = 'BORRAR_TOKEN'

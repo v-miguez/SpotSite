@@ -62,7 +62,23 @@ img{
 	margin-top: -10px;
 }
 
+.usuario{
+	display: flex;
+}
+.avatar{
+	width: 75px;
+	height: 75px;
+	background-color: black;
+	border-radius: 50%;
+}
+.nombre{
+	margin-top: 25px;
+	margin-right: 5px;
+}
 
+.danger{
+	color: red;
+}
 
 
 @media (max-width: 992px){

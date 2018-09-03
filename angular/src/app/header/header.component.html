@@ -13,11 +13,11 @@
 		</div>
 
 
-		<div class="login">
+		<div class="login" *ngIf="ngRedux.getState().token == '' ">
 			<div class="formulario">
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="text" placeholder="Alias" aria-label="Search">
-					<input class="form-control mr-sm-2" type="password" placeholder="Contraseña" aria-label="Search">
+				<form role="form" [formGroup]="formularioLogin" class="form-inline my-2 my-lg-0" (ngSubmit)="loginSubmit()">
+					<input formControlName="alias" class="form-control mr-sm-2" type="text" placeholder="Alias" aria-label="Search">
+					<input formControlName="password" class="form-control mr-sm-2" type="password" placeholder="Contraseña" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enviar</button>
 				</form>
 				<div class="opciones">
@@ -29,6 +29,16 @@
 			<div class="enlaces">
 				<a [routerLink]="['/register']"><h4>Registrate</h4></a>
 				<a [routerLink]="['/login']"><h4>Login</h4></a>
+			</div>
+		</div>
+		<div class="usuario" *ngIf="ngRedux.getState().token != '' ">
+			
+			<div class="nombre" >
+				<a routerLink="/user">Nombre</a> <br>
+				<a [routerLink]="" (click)="cerrarSesion()" class="danger small">Cerrar Sesión</a>
+			</div>
+			<div class="avatar">
+				
 			</div>
 		</div>
 		

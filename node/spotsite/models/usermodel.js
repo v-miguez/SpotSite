@@ -10,7 +10,7 @@ exports.userExist = (alias, done)=>{
 	db.get().query('SELECT * FROM users WHERE alias = ?', [alias], (err, rows) =>{
 
 		if(err) return done(err)
-		done(null, rows)
+			done(null, rows)
 
 	})
 
@@ -21,6 +21,8 @@ exports.userLogin = ({alias, password}, done)=>{
 	db.get().query('SELECT * FROM users WHERE alias = ? AND password = ?', [alias, password], (err, rows)=>{
 
 		if(err) return done(err)
-		done(null, rows)
+			done(null, rows)
 	})
 }
+
+

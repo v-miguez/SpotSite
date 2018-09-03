@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { ReactiveFormsModule, Validators, FormGroup, FormControl } from '@angular/forms'
+import { UsersService } from '../users.service'
+import { NgRedux } from '@angular-redux/store'
+import { IAppState } from '../store'
+import { GUARDAR_TOKEN, BORRAR_TOKEN } from '../actions'
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,13 +15,15 @@ export class HeaderComponent implements OnInit {
 
   ciudades: any []
 
+  formularioLogin: FormGroup
+  constructor(private router: Router, private usersService: UsersService, public ngRedux: NgRedux<IAppState>) {
+   
+     this.formularioLogin = new FormGroup({
+       alias: new FormControl(''),
+       password: new FormControl('')
+     })
 
-  constructor(private router: Router) {
-    this.ciudades = ['Alava','Albacete','Alicante','Almería','Asturias','Avila','Badajoz','Barcelona','Burgos','Cáceres',
-    'Cádiz','Cantabria','Castellón','Ciudad Real','Córdoba','La Coruña','Cuenca','Gerona','Granada','Guadalajara',
-    'Guipúzcoa','Huelva','Huesca','Islas Baleares','Jaén','León','Lérida','Lugo','Madrid','Málaga','Murcia','Navarra',
-    'Orense','Palencia','Las Palmas','Pontevedra','La Rioja','Salamanca','Segovia','Sevilla','Soria','Tarragona',
-    'Santa Cruz de Tenerife','Teruel','Toledo','Valencia','Valladolid','Vizcaya','Zamora','Zaragoza']
+
 
   }
 
@@ -28,5 +36,26 @@ export class HeaderComponent implements OnInit {
   	this.router.navigate([ruta])
   }
 
+
+  loginSubmit(){
+    this.usersService.login(this.formularioLogin.value).then((res)=>{
+      let objToken = res.json()
+      this.ngRedux.dispatch({
+        type: GUARDAR_TOKEN,
+        data: {token: objToken.token}
+      })
+
+    })
+
+
+  }
+
+  cerrarSesion(){
+    console.log("cerrar")
+    this.ngRedux.dispatch({
+      type: BORRAR_TOKEN,
+      data:{token: ''}
+    })
+  }
 
 }

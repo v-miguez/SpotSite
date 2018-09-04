@@ -25,4 +25,13 @@ exports.userLogin = ({alias, password}, done)=>{
 	})
 }
 
+exports.actualizarToken = ({token, id}, done)=>{
 
+	db.get().query('UPDATE users SET token = ? WHERE id = ?', [token, id], (err, rows)=>{
+
+		if(err) return done(err)
+		done(null, rows)
+
+	})
+
+}

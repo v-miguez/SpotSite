@@ -16,9 +16,16 @@ router.post('/login', (req, res)=>{
 				res.json({ error: 'No existe el usuario' })
 			}else{
 				userModel.userLogin(req.body, (err, rows)=>{
-					token = {'token': utils.generarToken()}
+					console.log(rows[0].alias)
+					let tokenStr = utils.generarToken()
+					let id = req.body.id
+					let alias = req.body.alias
 					if(err) return console.log(err)
-						res.json(token)
+						userModel.actualizarToken({tokenStr, id}, (err, rows)=>{
+							if(err) return console.log(err)
+								console.log(rows)
+						})
+					res.json({token: tokenStr,alias: alias})
 				})
 			}
 

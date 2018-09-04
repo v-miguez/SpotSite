@@ -7,14 +7,14 @@ import { GUARDAR_TOKEN, BORRAR_TOKEN } from './actions'
 export interface IAppState{
 
 	token: string
-
+	alias: string
 }
 
 
 export const INITIAL_STATE: IAppState = {
 
 	token: ''
-
+	alias: ''
 }
 
 
@@ -22,14 +22,11 @@ export function rootReducer(state, action){
 
 	switch (action.type) {
 		case GUARDAR_TOKEN:
-		return tassign(state, action.data)
-		break;
+			return tassign(state, action.data)
+			
 		case BORRAR_TOKEN:
-		return tassign(state, action.data)
-		break;
-		default:
-			// code...
-			break;
+			return tassign(state, action.data)
+	
 		}
 
 		return state

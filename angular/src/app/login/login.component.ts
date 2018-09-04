@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormControl, FormGroup } from '@angular/forms'
-import { LoginService } from '../login.service'
+import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { LoginService } from '../login.service';
+import { UsersService } from '../users.service';
+import { NgRedux } from '@angular-redux/store';
+import { IAppState } from '../store';
+import { GUARDAR_TOKEN, BORRAR_TOKEN } from '../actions';
+import { Router } from '@angular/router'
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +17,7 @@ export class LoginComponent implements OnInit {
 
 formularioLogin: FormGroup
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private usersService: UsersService, public ngRedux: NgRedux<IAppState>, private router: Router) {
 
   	this.formularioLogin = new FormGroup ({
 
@@ -24,14 +30,20 @@ formularioLogin: FormGroup
   ngOnInit() {
   }
 
-	handleOnSubmit(){
+	 loginSubmit(){
+    this.usersService.login(this.formularioLogin.value).then((res)=>{
+      let objToken = res.json().token
+      let objAlias = res.json().alias
+      this.ngRedux.dispatch({
+        type: GUARDAR_TOKEN,
+        data: {token: objToken, alias: objAlias}
+      })
 
-		this.loginService.sendLogin(this.formularioLogin.value).then((res)=>{
-			console.log(res)
+    })
 
-		})
+    this.router.navigate(['main'])
+  }
 
-	}
 
 
 

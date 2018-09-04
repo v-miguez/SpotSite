@@ -52,7 +52,6 @@ export class AppModule {
     let enhancers = isDevMode() ? [devTools.enhancer()] : []
 
     let estado_inicial = null
-    console.log(localStorage.getItem('redux_data'))
     if (localStorage.getItem('redux_data')) {
       estado_inicial = JSON.parse(localStorage.getItem('redux_data'))
     } else {
@@ -60,6 +59,6 @@ export class AppModule {
       estado_inicial = INITIAL_STATE
     }
 
-    ngRedux.configureStore(rootReducer, estado_inicial)//, [], enhancers)
+    ngRedux.configureStore(rootReducer, estado_inicial, [], enhancers)
   }
 }

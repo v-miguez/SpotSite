@@ -34,7 +34,7 @@
 		<div class="usuario" *ngIf="ngRedux.getState().token != '' ">
 			
 			<div class="nombre" >
-				<a routerLink="/user">Nombre</a> <br>
+				<a routerLink="/user">{{userAlias}}</a> <br>
 				<a [routerLink]="" (click)="cerrarSesion()" class="danger small">Cerrar Sesión</a>
 			</div>
 			<div class="avatar">

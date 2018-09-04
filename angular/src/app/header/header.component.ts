@@ -14,6 +14,7 @@ import { GUARDAR_TOKEN, BORRAR_TOKEN } from '../actions'
 export class HeaderComponent implements OnInit {
 
   ciudades: any []
+  userAlias: string
 
   formularioLogin: FormGroup
   constructor(private router: Router, private usersService: UsersService, public ngRedux: NgRedux<IAppState>) {
@@ -22,7 +23,12 @@ export class HeaderComponent implements OnInit {
        alias: new FormControl(''),
        password: new FormControl('')
      })
+     this.ngRedux.subscribe(()=>{
+       let stateStore = this.ngRedux.getState()
+       this.userAlias = stateStore.alias
 
+     })
+     this.userAlias = this.ngRedux.getState().alias
 
 
   }
@@ -39,10 +45,12 @@ export class HeaderComponent implements OnInit {
 
   loginSubmit(){
     this.usersService.login(this.formularioLogin.value).then((res)=>{
-      let objToken = res.json()
+      let objToken = res.json().token
+      let objAlias = res.json().alias
+
       this.ngRedux.dispatch({
         type: GUARDAR_TOKEN,
-        data: {token: objToken.token}
+        data: {token: objToken, alias: objAlias }
       })
 
     })
@@ -51,7 +59,6 @@ export class HeaderComponent implements OnInit {
   }
 
   cerrarSesion(){
-    console.log("cerrar")
     this.ngRedux.dispatch({
       type: BORRAR_TOKEN,
       data:{token: ''}

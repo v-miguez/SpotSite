@@ -32,6 +32,13 @@ router.post('/login', (req, res)=>{
 		})
 })
 
+router.post('/new', (req, res)=>{
+	userModel.crearUser(req.body, (err,rows)=>{
+		if(err) console.log(err)
+		res.json(rows)
+	})
+})
+
 
 
 

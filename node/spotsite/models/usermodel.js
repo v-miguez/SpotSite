@@ -35,3 +35,11 @@ exports.actualizarToken = ({token, id}, done)=>{
 	})
 
 }
+
+exports.crearUser = ({nombre=null, apellido=null, alias, email, password}, done)=>{
+	console.log(nombre)
+	db.get().query('INSERT INTO users VALUES (null, ?, ?, ?, ?, ?, null,null)', [nombre, apellido, alias, email, password], (err, rows)=>{
+		if(err) return done (err)
+		done(null, rows)
+	})
+}

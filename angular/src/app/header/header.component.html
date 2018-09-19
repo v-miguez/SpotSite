@@ -3,13 +3,14 @@
 		<div class="logo">
 			<a class="navbar-brand" [routerLink]="['/main']"><img src="../../assets/images/logo.png" alt=""></a>
 			
-		
+
 		</div>
 
 		<div class="busqueda">
 
-			
-			<input type="text" placeholder="&#xF002; Buscar Zona" style="font-family:Arial, FontAwesome"  (change)="busquedaCiudad($event.target.value)"/>
+			 
+
+			<input type="text" placeholder="&#xF002; Busca la ciudad" style="font-family:Arial, FontAwesome"  (change)="busquedaCiudad($event.target.value)"/>
 		</div>
 
 
@@ -21,27 +22,28 @@
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enviar</button>
 				</form>
 				<div class="opciones">
-					<label><input type="checkbox" id="cbox1" value="first_checkbox"> Mantener sesión iniciada</label> <br>
+					<label *ngIf="error == 'error'" class="error">El usuario o la contraeña no existe</label> <br>
 					<a [routerLink]="['/register']">¿Quieres registrarte?</a>
 
 				</div>
 			</div>
 			<div class="enlaces">
+
 				<a [routerLink]="['/register']"><h4>Registrate</h4></a>
 				<a [routerLink]="['/login']"><h4>Login</h4></a>
 			</div>
 		</div>
 		<div class="usuario" *ngIf="ngRedux.getState().token != '' ">
-			
+
 			<div class="nombre" >
-				<a routerLink="/user">{{userAlias}}</a> <br>
+				<a routerLink="/user/{{userAlias}}">{{userAlias}}</a> <br>
 				<a [routerLink]="" (click)="cerrarSesion()" class="danger small">Cerrar Sesión</a>
 			</div>
 			<div class="avatar">
-				
+				<img [src]="'../../assets/images/'+usuario[0]?.imagen" alt="">
 			</div>
 		</div>
-		
+
 	</nav>
 </header>
 

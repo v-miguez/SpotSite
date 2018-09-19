@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
-import { LoginService } from '../login.service';
 import { UsersService } from '../users.service';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
@@ -15,9 +14,9 @@ import { Router } from '@angular/router'
 })
 export class LoginComponent implements OnInit {
 
-formularioLogin: FormGroup
-
-  constructor(private loginService: LoginService, private usersService: UsersService, public ngRedux: NgRedux<IAppState>, private router: Router) {
+  formularioLogin: FormGroup
+  error: string
+  constructor(private usersService: UsersService, public ngRedux: NgRedux<IAppState>, private router: Router) {
 
   	this.formularioLogin = new FormGroup ({
 
@@ -30,18 +29,24 @@ formularioLogin: FormGroup
   ngOnInit() {
   }
 
-	 loginSubmit(){
+  loginSubmit(){
+    
     this.usersService.login(this.formularioLogin.value).then((res)=>{
+      if (res.json().error){
+        this.error = 'error'
+      }else{
       let objToken = res.json().token
       let objAlias = res.json().alias
+
       this.ngRedux.dispatch({
         type: GUARDAR_TOKEN,
-        data: {token: objToken, alias: objAlias}
+        data: {token: objToken, alias: objAlias }
       })
+        this.router.navigate(['main'])
 
+      }
     })
 
-    this.router.navigate(['main'])
   }
 
 

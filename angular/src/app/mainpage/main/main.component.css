@@ -19,6 +19,18 @@
 }
 
 
+.content{
+	padding: 10px 10px !important;
+}
+.card{
+	height: auto !important;
+}
+.description img{
+	width: 100%;
+}
+
+
+
 @media (max-width: 992px){
 
 	.card{
@@ -30,6 +42,7 @@
 	}
 
 }
+
 
 @media (max-width: 767px){
 

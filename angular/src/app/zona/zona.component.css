@@ -53,17 +53,35 @@ img{
 	color: red;
 }
 
-.container{
-	
+.zonaComments{
+	display: flex;
+	flex-direction: row;
 }
 
+.comments{
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+}
+
+.papelera{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+
+}
 .comentario{
 	display: flex;
+	width: 100%;
 	border: 1px solid #eee;
 	padding: 10px;
+	position: relative;
+}
+.mapa{
+	width: 40%;
 }
 .foto{
-	background-color: black;
+	
 	border-radius: 50%;
 	width: 70px;
 	height: 70px;
@@ -72,15 +90,28 @@ img{
 	text-align: center;
 }
 .texto{
-
+	resize: none;
 	padding: 30px;
+
+}
+textarea{
+	resize: none;
+}
+.main-container{
+
+	padding: 20px;
 
 }
 
 iframe{
-	margin-top: -280px;
+	margin-top: 0;
 }
 
+.foto img{
+	width: 70px;
+	height: 70px;
+	border-radius: 30%;
+}
 
 
 @media (max-width: 991px){

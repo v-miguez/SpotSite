@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
 import { ReactiveFormsModule, Validators, FormGroup, FormControl } from '@angular/forms'
 import { UsersService } from '../users.service'
 import { Router } from '@angular/router'
@@ -33,9 +32,10 @@ export class RegistroComponent implements OnInit {
 			repeatPassword: new FormControl('',[
 				Validators.required,
 				Validators.minLength(6),
-				Validators.maxLength(50)
+				Validators.maxLength(50),
+
 				])
-		})
+		}, { validators: [this.validatePasswordMatch]})
 	}
 
 	ngOnInit() {
@@ -47,5 +47,18 @@ export class RegistroComponent implements OnInit {
 			console.log('usuario añadido')
 			this.router.navigate(['main'])
 		})
+	}
+
+	validatePasswordMatch(formGroup) {
+		if (formGroup.controls.repeatPassword.value.length <= 0) {
+			return null
+		}
+		let passwordValue = formGroup.controls.password.value
+		let passwordRepeatValue = formGroup.controls.repeatPassword.value
+		if (passwordValue === passwordRepeatValue) {
+			return null
+		} else {
+			return { notSame: true }
+		}
 	}
 }

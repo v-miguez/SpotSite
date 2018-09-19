@@ -6,7 +6,7 @@
 			<input class="input" type="text" placeholder="Alias" formControlName="alias" />
 			
 			<input class="input" type="password" placeholder="Contraseña" formControlName="password" />
-			<label><input type="checkbox" id="cbox1" value="first_checkbox"> Mantener sesión iniciada</label> <br>
+			<label *ngIf="error == 'error'" class="error">El usuario o la contraeña no existe</label> <br>
 			<button type="submit" class="btn btn-dark">Entrar</button>
 
 		</form>

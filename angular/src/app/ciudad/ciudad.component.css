@@ -2,14 +2,13 @@
 	width: 100%;
 	display: flex;
 	padding: 0px;
-	background-color: tomato;
 	flex-direction: column;
 }
 
 .containerZonas{
 	width: 75%;
 	height: 85vh;
-	background-color: lightblue;
+	background-color: #eee;
 	overflow: scroll;
 	display: flex;
 	flex-wrap: wrap;
@@ -20,7 +19,7 @@
 .mapa{
 	width: 600px;
 	height: 85vh;
-	background-color: lightgreen;
+	background-color: #eee;
 	overflow: hidden;
 }
 
@@ -74,18 +73,7 @@ input{
 	padding: 10px;
 	border: none;
 	border-bottom: 1px solid #eee;
-}
 
-span{
-	display: flex;
-	justify-content: space-between;
-}
-
-span i{
-	margin-top: 20px;
-	margin-left: 10px;
-	cursor: pointer;
-	font-size: 20px;
 }
 .fa-plus{
 	color: green;
@@ -179,4 +167,20 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+
+.card{
+	width: 30%;
+	margin-top: 0px;
+}
+
+
+.content{
+	padding: 10px 10px !important;
+	flex-grow: 0 !important;
+	height: auto !important;
+}
+.description img{
+	width: 100%;
 }

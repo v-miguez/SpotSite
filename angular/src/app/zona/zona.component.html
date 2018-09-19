@@ -1,45 +1,63 @@
 <div class="jumbotron jumbotron-fluid" >
 	<div class="fondo">
-		<img src="../../assets/images/ceas3.jpg" alt="">
+		<img [src]="'../../assets/images/'+arrayImagenes[0]" alt="">
 	</div>
 	<div class="contenedor">
-		<img src="../../assets/images/ceas3.jpg" alt="">
+		<img [src]="'../../assets/images/'+arrayImagenes[0]" alt="">
 		
 	</div>
 	<button type="button" class="fav btn btn-light"><i class="fas fa-heart"></i> Favoritos</button>
 	<button type="button" class="share btn btn-light"><i class="fas fa-share-alt-square"></i> Compartir</button>
-	<a href="https://unsplash.it/1200/768.jpg?image=263" data-toggle="lightbox" data-gallery="hidden-images" class="col-4">
+	<a [href]="'../../assets/images/'+arrayImagenes[1]" data-toggle="lightbox" data-gallery="hidden-images" class="col-4">
 		<button type="button" class="fotos btn btn-light">Ver mas fotos</button>
 	</a>
 
 </div>
 
-<div class="main container">
-	<div class="row">
-		<div class=" col-md-12 col-sm-12 col-lg-8 comentarios" *ngFor="let comentario of [0, 1, 2]">
-			<div class="comentario mt-1">
+
+<div class="main-container">
+	<div class="form-group" *ngIf="ngRedux.getState().token != '' ">
+		
+		<form (ngSubmit)="enviarComentario(comentario)">
+			<div class="form-group" >
+				<label for="comment">Escribe tu comentario:</label>
+				<textarea class="form-control" rows="5" id="comment"></textarea>
+				<button type="submit" class="btn btn-success">Comentar!</button>
+
+			</div>
+		</form>
+
+	</div>
+	<div class="zonaComments">
+		<div class="comments" >
+			<div class="comentario mt-1" *ngFor="let comentario of comentarios">
 				<div class="usuario">
-					<div class="foto"></div>
+					<div class="foto"> <img [src]="'../../assets/images/'+comentario.imagen" alt=""></div>
 					<div class="info">
-						nombre <br>
-						ciudad
+						{{comentario.alias}} <br>
+						<span>{{comentario.ciudad}}</span>
 					</div>
 				</div>
 				<div class="texto">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti harum illum, earum repellendus! Voluptate fugit vel facere veniam, corporis rem alias laborum obcaecati veritatis delectus aut laboriosam harum nam odio.
+					{{comentario.comentario}}
+
 				</div>
+				<div class="papelera" *ngIf="ngRedux.getState().alias == comentario.alias" (click)="borrarComentario(comentario.id)">
+
+					<i class="fas fa-trash-alt" ></i>
+				</div>
+				
 			</div>
 		</div>
-		<div class="col-md-12 col-sm-12 col-lg-4 mapa">
-			<iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&height=600&hl=es&q=calle%20pe%C3%B1a%20trevinca%201%2C%20zamora+(vallas)&ie=UTF8&t=&z=17&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+		<div class=" mapa">
+			<iframe width="100%" height="600" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2987.7033015299357!2d-5.749038684613802!3d41.51070399630434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDMwJzM4LjUiTiA1wrA0NCc0OC43Ilc!5e0!3m2!1ses!2ses!4v1536161058222" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 		</div>
 	</div>
+
 </div>
 
 
 
 <!-- elements not showing, use data-remote -->
-<div data-toggle="lightbox" data-gallery="hidden-images" data-remote="https://unsplash.it/1200/768.jpg?image=264" data-title="Hidden item 1"></div>
-<div data-toggle="lightbox" data-gallery="hidden-images" data-remote="https://www.youtube.com/embed/b0jqPvpn3sY" data-title="Hidden item 2"></div>
-<div data-toggle="lightbox" data-gallery="hidden-images" data-remote="https://unsplash.it/1200/768.jpg?image=265" data-title="Hidden item 3"></div>
-<div data-toggle="lightbox" data-gallery="hidden-images" data-remote="https://unsplash.it/1200/768.jpg?image=266" data-title="Hidden item 4"></div>
+<div data-toggle="lightbox" data-gallery="hidden-images"  data-title="" *ngFor="let imagen of arrayImagenes; let index = index" [attr.data-remote]="'../../assets/images/'+imagen"></div>
+

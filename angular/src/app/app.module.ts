@@ -3,7 +3,7 @@ import { NgModule, isDevMode } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { HttpModule } from '@angular/http';
-
+import{ HttpClientModule }from"@angular/common/http"
 import { ReactiveFormsModule } from '@angular/forms'
 import { FormsModule } from '@angular/forms'
 
@@ -25,22 +25,24 @@ import { NgReduxModule, NgRedux, DevToolsExtension} from '@angular-redux/store'
 import { IAppState, rootReducer, INITIAL_STATE } from './store'
 
 
-
 @NgModule({
   declarations: [
-  AppComponent,
-  HeaderComponent,
-  SliderComponent,
-  MainComponent,
-  FooterComponent,
-  RegistroComponent,
-  LoginComponent,
-  CiudadComponent,
-  UserzoneComponent,
-  ZonaComponent
+    AppComponent,
+    HeaderComponent,
+    SliderComponent,
+    MainComponent,
+    FooterComponent,
+    RegistroComponent,
+    LoginComponent,
+    CiudadComponent,
+    UserzoneComponent,
+    ZonaComponent
   ],
   imports: [
-  BrowserModule, BrowserAnimationsModule, HttpModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule, FormsModule, NgReduxModule
+    BrowserModule, BrowserAnimationsModule,
+    HttpClientModule, HttpModule, RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule, FormsModule,
+    NgReduxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

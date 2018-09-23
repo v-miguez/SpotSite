@@ -23,8 +23,11 @@ export class ZonaComponent implements OnInit {
 	id: any
 	comentarios: any
 	tiempoComentario: number
+	hayTexto: boolean
 
 	constructor(private zonasService: ZonasService, private activatedRoute: ActivatedRoute,  public ngRedux: NgRedux<IAppState>, private userService: UsersService) {
+
+		this.hayTexto = false
 
 		// -----------LIGHTBOX----------------
 		$(document).on('click', '[data-toggle="lightbox"]', function(event) {
@@ -68,10 +71,13 @@ export class ZonaComponent implements OnInit {
 
 					console.log(res.json())
 					this.actualizarComentarios()
+					this.hayTexto = false
 				})
 				setTimeout(()=>{
 					this.tiempoComentario = 0
 				}, 3000)
+			}else{
+				this.hayTexto = true
 			}
 		}else{
 			alert('Tienes que esperar 3 segundos entre comentario y comentario!')

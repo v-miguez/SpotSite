@@ -73,11 +73,12 @@ router.get('/comments/:id', (req, res)=>{
 
 
 router.post('/new', multipartMiddleware,(req, res)=>{
-	// console.log(req.files.imagen.path)
+	console.log(req.files.imagen.path)
 	let content = fs.readFileSync(req.files.imagen.path)
 	let tokenStr = utils.generarToken()
 	console.log('el token es ', tokenStr)
 	let path = `${__dirname}/../../public/images/${tokenStr}.png`
+	console.log(path)
 	fs.writeFileSync(path, content)
 	let zona = req.body
 	zonasmodel.nuevaZona(zona, (err, rows)=>{

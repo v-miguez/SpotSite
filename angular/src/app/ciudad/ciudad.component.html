@@ -14,7 +14,7 @@
 					<i class="right floated star icon"></i>
 					<div class="header">{{zona.nombre}} </div>
 					<div class="description">
-						<img [src]="'../../../assets/images/'+(zona.imagenes.split(',')[0])" alt="">
+						<img [src]="'http://localhost:3000/images/'+(zona.imagenes.split(',')[0])" alt="">
 					</div>
 				</div>
 				<div class="extra content">
@@ -51,10 +51,10 @@
 				
 				<span *ngFor="let elemento of listaImagenesFormulario; let index = index;" >
 					<input type="file" (change)="onFileChange($event)" accept="image/*" value="Elige la imagen" class="imagenes{{index}}">
-					<div>
+					<!-- <div>
 						<i *ngIf="index == listaImagenesFormulario.length-1" class="fas fa-plus" (click)=addImagen(index)></i>
 						<i *ngIf="index != listaImagenesFormulario.length-1" class="fas fa-minus" (click)="dropImagen(index)"></i>
-					</div>
+					</div> -->
 
 
 				</span>

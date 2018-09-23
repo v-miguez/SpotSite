@@ -17,7 +17,7 @@ router.post('/login', (req, res)=>{
 			}else{
 				userModel.userLogin(req.body, (err, rows)=>{
 					if(err || rows.length == 0)
-						{ console.log(err)}
+						res.json({ error: 'No existe el usuario' })
 					else{
 						let tokenStr = utils.generarToken()
 						let id = rows[0].id

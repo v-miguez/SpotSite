@@ -23,7 +23,7 @@
 				<label for="comment">Escribe tu comentario:</label>
 				<textarea class="form-control" rows="5" id="comment"></textarea>
 				<button type="submit" class="btn btn-success">Comentar!</button>
-
+				<p *ngIf="hayTexto" class="danger">Tienes que escribir un mensaje!</p>
 			</div>
 		</form>
 

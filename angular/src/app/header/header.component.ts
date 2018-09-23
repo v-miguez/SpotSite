@@ -62,6 +62,7 @@ export class HeaderComponent implements OnInit {
   loginSubmit(){
 
     this.usersService.login(this.formularioLogin.value).then((res)=>{
+      console.log(res.json())
       if (res.json().error){
         this.error = 'error'
       }else{

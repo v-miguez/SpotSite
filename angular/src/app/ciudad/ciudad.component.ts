@@ -117,6 +117,8 @@ export class CiudadComponent implements OnInit {
 		const req = new HttpRequest("POST","http://localhost:3000/api/zonas/new",fd,{headers:header});
 
 		this.httpClient.request(req).toPromise().then(result=> console.log(result))
+
+		alert('Sitio añadido, recargue la página para visualizar')
 	}
 
 	onFileChange($event){

@@ -1,0 +1,202 @@
+.contenedorUser{
+	width: 100%;
+	background-color: #eee;
+
+
+}
+
+
+.panel{
+	width: 65%;
+	padding: 0px;
+	display: flex;
+	margin: 0 auto;
+
+}
+
+
+.control{
+	padding: 0 30px;
+	width: 100%;
+	background-color: #eee;
+}
+
+
+
+input{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	margin: 10px 0px;
+}
+
+h4{
+	margin-top: 0px;
+}
+
+.informacion{
+	display: flex;
+
+}
+.avatar img{
+	width: 150px;
+	height: 150px;
+	border-radius: 30%;
+	margin-left: 30px;
+}
+
+.info{
+	padding: 20px;
+	margin-left: 20px;
+}
+
+section{
+	margin: 20px 0;
+	background-color: white;
+	padding: 20px;
+	border: 1px solid #eee;
+	border-radius: 0.25em;
+	box-shadow: 5px 4px 5px 0px rgba(179,179,179,1);
+}
+
+
+.controlZonas{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.zona{
+	box-sizing: border-box;
+	width: 30%;
+	height: 300px;
+
+	
+}
+
+span{
+	cursor: pointer;
+}
+
+.like{
+	color: red;
+}
+
+.star{
+	color: yellow;
+}
+
+button{
+	width: 200px;
+}
+
+.opciones{
+	display: flex;
+	justify-content: space-between;
+}
+.zonasOptions{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.modal-content{
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+span i {
+	margin-left: 5px;
+}
+.formularioEdit{
+	display: flex;
+	justify-content: center;
+}
+
+.formularioEdit input{
+	width: 80%;
+}
+
+.imagenEdit{
+	display: flex;
+	flex-direction: column;
+	margin-left: 10	%;
+}
+.cambioImagen{
+	width: 100px;
+	height: 100px;
+	background-color: blue;
+}
+
+.borrarPerfil{
+	display: flex;
+	justify-content: center;
+}
+.borrarPerfil button{
+
+	min-width: 300px;
+
+}
+.btn-outline-danger i{
+	font-size: 18px;
+}
+
+
+
+
+
+form{
+	display: flex;
+	flex-direction: column;
+	padding: 40px;
+}
+
+
+input{
+	margin: 10px 0px;
+	padding: 10px;
+	border: none;
+	border-bottom: 1px solid #eee;
+}
+
+span{
+	display: flex;
+	justify-content: space-between;
+}
+
+form span i{
+	margin-top: 20px;
+	margin-left: 10px;
+	cursor: pointer;
+	font-size: 20px;
+}
+.fa-plus{
+	color: green;
+
+}
+
+.fa-minus{
+	color: red;
+}
+
+.modal-header span{
+	display: flex;
+	justify-content: flex-end;
+
+}
+div h3{
+	text-align: center;
+	
+}
+
+.modal-content[_ngcontent-c3]{
+	padding: 10px;
+}
+
+.description img{
+	width: 100%;
+	height: 200px;
+}

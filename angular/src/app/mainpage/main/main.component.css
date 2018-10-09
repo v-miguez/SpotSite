@@ -1,0 +1,53 @@
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.contaainer{
+	width: 80%;
+	margin: 0 auto;
+	justify-content: space-between;
+	padding: 10px;
+
+}
+
+.card{
+	width: 30%;
+	height: 300px;
+	margin-top: 0px;
+}
+
+
+.content{
+	padding: 10px 10px !important;
+}
+.card{
+	height: auto !important;
+}
+.description img{
+	width: 100%;
+}
+
+
+
+@media (max-width: 992px){
+
+	.card{
+		width: 40%;
+	}
+	.hover{
+		max-height: 100px;
+		bottom: 0px;
+	}
+
+}
+
+
+@media (max-width: 767px){
+
+	.card{
+		width: 80%;
+		margin: 10px auto;
+	}
+
+}

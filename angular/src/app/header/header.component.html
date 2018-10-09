@@ -1,0 +1,49 @@
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="logo">
+			<a class="navbar-brand" [routerLink]="['/main']"><img src="../../assets/images/logo.png" alt=""></a>
+			
+
+		</div>
+
+		<div class="busqueda">
+
+			 
+
+			<input type="text" placeholder="&#xF002; Busca la ciudad" style="font-family:Arial, FontAwesome"  (change)="busquedaCiudad($event.target.value)"/>
+		</div>
+
+
+		<div class="login" *ngIf="ngRedux.getState().token == '' ">
+			<div class="formulario">
+				<form role="form" [formGroup]="formularioLogin" class="form-inline my-2 my-lg-0" (ngSubmit)="loginSubmit()">
+					<input formControlName="alias" class="form-control mr-sm-2" type="text" placeholder="Alias" aria-label="Search">
+					<input formControlName="password" class="form-control mr-sm-2" type="password" placeholder="Contraseña" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enviar</button>
+				</form>
+				<div class="opciones">
+					<label *ngIf="error == 'error'" class="error">El usuario o la contraseña no existe</label> <br>
+					<a [routerLink]="['/register']">¿Quieres registrarte?</a>
+
+				</div>
+			</div>
+			<div class="enlaces">
+
+				<a [routerLink]="['/register']"><h4>Registrate</h4></a>
+				<a [routerLink]="['/login']"><h4>Login</h4></a>
+			</div>
+		</div>
+		<div class="usuario" *ngIf="ngRedux.getState().token != '' ">
+
+			<div class="nombre" >
+				<a routerLink="/user/{{userAlias}}">{{userAlias}}</a> <br>
+				<a [routerLink]="" (click)="cerrarSesion()" class="danger small">Cerrar Sesión</a>
+			</div>
+			<div class="avatar">
+				<img [src]="'../../assets/images/'+usuario[0]?.imagen" alt="">
+			</div>
+		</div>
+
+	</nav>
+</header>
+

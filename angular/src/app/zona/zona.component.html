@@ -1,0 +1,63 @@
+<div class="jumbotron jumbotron-fluid" >
+	<div class="fondo">
+		<img [src]="'../../assets/images/'+arrayImagenes[0]" alt="">
+	</div>
+	<div class="contenedor">
+		<img [src]="'../../assets/images/'+arrayImagenes[0]" alt="">
+		
+	</div>
+	<button type="button" class="fav btn btn-light"><i class="fas fa-heart"></i> Favoritos</button>
+	<button type="button" class="share btn btn-light"><i class="fas fa-share-alt-square"></i> Compartir</button>
+	<a [href]="'../../assets/images/'+arrayImagenes[1]" data-toggle="lightbox" data-gallery="hidden-images" class="col-4">
+		<button type="button" class="fotos btn btn-light">Ver mas fotos</button>
+	</a>
+
+</div>
+
+
+<div class="main-container">
+	<div class="form-group" *ngIf="ngRedux.getState().token != '' ">
+		
+		<form (ngSubmit)="enviarComentario(comentario)">
+			<div class="form-group" >
+				<label for="comment">Escribe tu comentario:</label>
+				<textarea class="form-control" rows="5" id="comment"></textarea>
+				<button type="submit" class="btn btn-success">Comentar!</button>
+				<p *ngIf="hayTexto" class="danger">Tienes que escribir un mensaje!</p>
+			</div>
+		</form>
+
+	</div>
+	<div class="zonaComments">
+		<div class="comments" >
+			<div class="comentario mt-1" *ngFor="let comentario of comentarios">
+				<div class="usuario">
+					<div class="foto"> <img [src]="'../../assets/images/'+comentario.imagen" alt=""></div>
+					<div class="info">
+						{{comentario.alias}} <br>
+						<span>{{comentario.ciudad}}</span>
+					</div>
+				</div>
+				<div class="texto">
+					{{comentario.comentario}}
+
+				</div>
+				<div class="papelera" *ngIf="ngRedux.getState().alias == comentario.alias" (click)="borrarComentario(comentario.id)">
+
+					<i class="fas fa-trash-alt" ></i>
+				</div>
+				
+			</div>
+		</div>
+		<div class=" mapa">
+			<iframe width="100%" height="600" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2987.7033015299357!2d-5.749038684613802!3d41.51070399630434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDMwJzM4LjUiTiA1wrA0NCc0OC43Ilc!5e0!3m2!1ses!2ses!4v1536161058222" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+		</div>
+	</div>
+
+</div>
+
+
+
+<!-- elements not showing, use data-remote -->
+<div data-toggle="lightbox" data-gallery="hidden-images"  data-title="" *ngFor="let imagen of arrayImagenes; let index = index" [attr.data-remote]="'../../assets/images/'+imagen"></div>
+

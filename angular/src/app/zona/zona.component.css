@@ -1,0 +1,129 @@
+.jumbotron{
+	padding: 0;
+	height: 500px;
+	position: relative;
+}
+
+.fondo{
+	overflow: hidden;
+	position: relative;
+	opacity: 0.3;
+}
+
+.fondo img{
+
+	width: 100%;
+	height: 500px;
+}
+
+.contenedor{
+	height: 500px;
+	position: absolute;
+	top: 0;
+	left:20%;
+	text-align: center;
+
+}
+
+.fav{
+	position: absolute;
+	top: 5px;
+	right: 0;
+	width: 100px;
+}
+
+.share{
+	position: absolute;
+	top: 5px;
+	right: 105px;
+}
+
+.fotos{
+	position: relative;
+	bottom: 50px;
+	left: 5px;
+}
+
+img{
+	height: 500px;
+}
+
+.fav:hover i{
+	transition-duration: 0.5s;
+	color: red;
+}
+
+.zonaComments{
+	display: flex;
+	flex-direction: row;
+}
+
+.comments{
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+}
+
+.papelera{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+
+}
+.danger{
+	color: red;
+}
+.comentario{
+	display: flex;
+	width: 100%;
+	border: 1px solid #eee;
+	padding: 10px;
+	position: relative;
+}
+.mapa{
+	width: 40%;
+}
+.foto{
+	
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+}
+.info{
+	text-align: center;
+}
+.texto{
+	resize: none;
+	padding: 30px;
+
+}
+textarea{
+	resize: none;
+}
+.main-container{
+
+	padding: 20px;
+
+}
+
+iframe{
+	margin-top: 0;
+}
+
+.foto img{
+	width: 70px;
+	height: 70px;
+	border-radius: 30%;
+}
+
+
+@media (max-width: 991px){
+	iframe{
+		margin-top: 10px;
+	}
+}
+
+
+
+
+

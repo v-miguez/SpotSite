@@ -1,0 +1,41 @@
+.container{
+    width: 50%;
+    display: flex;
+}
+
+.formulario{
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.08) 5px 5px 5px;
+    margin: 150px 0px;
+    padding: 20px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+input.input{
+    flex-basis: 40%;
+    margin: 15px 0px;
+    padding: 5px 10px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+button{
+    width: 40%;
+}
+
+.tituloRegistro{
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.error{
+    color: red;
+}

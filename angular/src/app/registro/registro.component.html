@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="formulario">
+		<div class="tituloRegistro"><h2>Registro</h2></div>
+		<form [formGroup]="formularioRegistro" (ngSubmit)="loginSubmit()">
+			<input formControlName="nombre" class="input" type="text" placeholder="Nombre" />
+			<input formControlName="apellido" class="input" type="text" placeholder="Apellido" />
+			<input formControlName="alias" class="input" type="text" placeholder="Alias" />
+			<input formControlName="email" class="input" type="text" placeholder="Email" />
+			<input formControlName="password" class="input" type="password" placeholder="Contraseña" />
+			<input formControlName="repeatPassword" class="input" type="password" placeholder="Repite la contraseña" />
+			<button type="submit" class="btn btn-dark" [disabled]="!formularioRegistro.valid">Enviar</button>
+
+		</form>
+	</div>
+</div>
